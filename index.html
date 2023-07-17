@@ -11,43 +11,88 @@
 </head>
 
 <body onload="init()">
-    <nav class="navbar bg-body-tertiary">
-        <div class="container-fluid">
-            <span class="navbar-brand mb-0 h1">QuizzApp</span>
-        </div>
-    </nav>
-    <div class="container">
-        <div class="card quiz-card">
-            <img src="img/pencil.jpg" class="card-img-top">
-            <div class="card-body">
-                <h5 id="questionTitle" class="card-title"></h5>
-                <div class="card mb-2">
-                    <div id="answer_1" class="card-body quizz-answer-card" onclick="answer('answer_1')">
-                        Antwort
-                    </div>
+    <div class="main-container">
+        <div class="container">
+            <div class="quizz-section">
+                <div class="img-logo">
+                    <img src="img/logo.png">
                 </div>
-                <div class="card mb-2">
-                    <div id="answer_2" class="card-body quizz-answer-card" onclick="answer('answer_2')">
-                        Antwort
-                    </div>
+                <div class="question-set">
+                    <div class="active-set"></div>
+                    <div class="space"></div>
+                    <div><h3>HTML</h3></div>
                 </div>
-                <div class="card mb-2">
-                    <div id="answer_3" class="card-body quizz-answer-card" onclick="answer('answer_3')">
-                        Antwort
-                    </div>
+                <div class="question-set">
+                    <div class="inactive-set"></div>
+                    <div class="space"></div>
+                    <div><h3>CSS</h3></div>
                 </div>
-                <div class="card mb-2">
-                    <div id="answer_4" class="card-body quizz-answer-card" onclick="answer('answer_4')">
-                        Antwort
-                    </div>
+                <div class="question-set">
+                    <div class="inactive-set"></div>
+                    <div class="space"></div>
+                    <div><h3>JS</h3></div>
                 </div>
-                <div class="question-footer">
-                    <span>
-                        <b id="currentQuestion"></b> von <b id="totalQuestions"></b> Fragen
-                    </span>
-                    <button onclick="nextQuestion()" class="btn btn-secondary" id="next-button" disabled>Nächste Frage</button>
+                <div class="question-set">
+                    <div class="inactive-set"></div>
+                    <div class="space"></div>
+                    <div><h3>JAVA</h3></div>
                 </div>
+            </div>
+            <div class="welcome-to-quizz-section">
+                <div class="t-center">Welcome to <br> the awesome HTML Quizz</div>
 
+
+                <div class="card quiz-card" style="display: none;">
+                    <img src="img/pencil.jpg" id="headerImage" class="card-img-top">
+                    <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="25"
+                        aria-valuemin="0" aria-valuemax="100">
+                        <div id="userBar" class="progress-bar" style="width: 0.1%"></div>
+                    </div>
+                    <div class="card-body" id="endScreen" style="display: none;">
+                        <div class="t-center quizz-done-headline">
+                            Quizz abgeschlossen !
+                        </div>
+                        <div class="t-center">
+                            Du hast <b id="correctAnswered"></b> von <b id="allQuestions"></b> Fragen richtig
+                            beantwortet !
+                        </div>
+                        <div class="btn-row">
+                            <button onclick="restartGame()" class="btn btn-secondary">Replay</button>
+                        </div>
+                    </div>
+
+                    <div id="quizBody" class="card-body">
+                        <h5 id="questionTitle" class="card-title"></h5>
+                        <div class="card mb-2">
+                            <div id="answer_1" class="card-body quizz-answer-card" onclick="answer('answer_1')">
+                                Antwort
+                            </div>
+                        </div>
+                        <div class="card mb-2">
+                            <div id="answer_2" class="card-body quizz-answer-card" onclick="answer('answer_2')">
+                                Antwort
+                            </div>
+                        </div>
+                        <div class="card mb-2">
+                            <div id="answer_3" class="card-body quizz-answer-card" onclick="answer('answer_3')">
+                                Antwort
+                            </div>
+                        </div>
+                        <div class="card mb-2">
+                            <div id="answer_4" class="card-body quizz-answer-card" onclick="answer('answer_4')">
+                                Antwort
+                            </div>
+                        </div>
+                        <div class="question-footer">
+                            <span>
+                                <b id="currentQuestion"></b> von <b id="totalQuestions"></b> Fragen
+                            </span>
+                            <button onclick="nextQuestion()" class="btn btn-secondary" id="next-button" disabled>Nächste
+                                Frage</button>
+                        </div>
+
+                    </div>
+                </div>
             </div>
         </div>
     </div>

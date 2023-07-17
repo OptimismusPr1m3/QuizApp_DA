@@ -43,12 +43,13 @@ let questions = [
 ]
 
 let currentQuestion = 0;
+let correctAnsweredQuestions = 0;
 
 function init() {
     let totalQuestions = document.getElementById('totalQuestions');
     totalQuestions.innerHTML = questions.length;
-    showCurrentQuestionFoot();
     showQuestion();
+    showCurrentQuestionFoot();
 
 }
 
@@ -58,11 +59,17 @@ function showCurrentQuestionFoot() {
 }
 
 function showQuestion() {
-    let question = questions[currentQuestion]['question'];
-    let questionTitle = document.getElementById('questionTitle');
+
     if (currentQuestion >= questions.length) {
-        //TODO ENDSCREEn
+        document.getElementById('endScreen').style = '';
+        document.getElementById('quizBody').style = 'display: none;'
+        document.getElementById('correctAnswered').innerHTML = correctAnsweredQuestions;
+        document.getElementById('allQuestions').innerHTML = questions.length;
+        document.getElementById('headerImage').src = '/img/trophy.png'
+
     } else {
+        let question = questions[currentQuestion]['question'];
+        let questionTitle = document.getElementById('questionTitle');
         questionTitle.innerHTML = question;
         showAnswers();
     }
@@ -81,6 +88,7 @@ function answer(selection) {
     let userAnswer = Number(selection.slice(-1));
     let rightAnswer = questions[currentQuestion]['right_answer'];
     if (userAnswer === rightAnswer) {
+        correctAnsweredQuestions++;
         document.getElementById(selection).parentNode.classList.add('bg-success');
     } else {
         document.getElementById(selection).parentNode.classList.add('bg-danger');
@@ -92,9 +100,16 @@ function answer(selection) {
 
 function nextQuestion() {
     currentQuestion++;
+    fillProgressBar();
     clearAll();
     init();
     showQuestion();
+}
+
+function fillProgressBar() {
+    let percentageFromBar = Math.round(currentQuestion / questions.length * 100);
+    document.getElementById('userBar').style.width = percentageFromBar + "%";
+    document.getElementById('userBar').innerHTML = `${percentageFromBar}%`;
 }
 
 function clearAll() {
@@ -102,4 +117,17 @@ function clearAll() {
         document.getElementById(`answer_${i}`).parentNode.classList.remove('bg-success');
         document.getElementById(`answer_${i}`).parentNode.classList.remove('bg-danger');
     }
+    document.getElementById('next-button').disabled = true;
+}
+
+function restartGame() {
+    correctAnsweredQuestions = 0;
+    currentQuestion = 0;
+    document.getElementById('userBar').style.width = 0.5 + "%";
+    document.getElementById('userBar').innerHTML = '';
+    document.getElementById('endScreen').style = 'display: none';
+    document.getElementById('quizBody').style = '';
+    document.getElementById('headerImage').src = '/img/pencil.jpg'
+    showQuestion();
+    showCurrentQuestionFoot();
 }
