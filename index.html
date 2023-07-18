@@ -6,94 +6,112 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="fonts.css">
     <script src="script.js"></script>
     <title>QuizApp</title>
 </head>
 
-<body onload="init()">
+<body>
     <div class="main-container">
         <div class="container">
             <div class="quizz-section">
                 <div class="img-logo">
                     <img src="img/logo.png">
                 </div>
-                <div class="question-set">
-                    <div class="active-set"></div>
+                <div onclick="setQuizz(htmlQuestions, 'htm')" class="question-set">
+                    <div id="htm" class="inactive-set"></div>
                     <div class="space"></div>
-                    <div><h3>HTML</h3></div>
+                    <div>
+                        <h3>HTML</h3>
+                    </div>
                 </div>
-                <div class="question-set">
-                    <div class="inactive-set"></div>
+                <div onclick="setQuizz(cssQuestions, 'cs')" class="question-set">
+                    <div id="cs" class="inactive-set"></div>
                     <div class="space"></div>
-                    <div><h3>CSS</h3></div>
+                    <div>
+                        <h3>CSS</h3>
+                    </div>
                 </div>
-                <div class="question-set">
-                    <div class="inactive-set"></div>
+                <div onclick="setQuizz(jsQuestions, 'js')" class="question-set">
+                    <div id="js" class="inactive-set"></div>
                     <div class="space"></div>
-                    <div><h3>JS</h3></div>
+                    <div>
+                        <h3>JS</h3>
+                    </div>
                 </div>
-                <div class="question-set">
-                    <div class="inactive-set"></div>
+                <div onclick="setQuizz(javaQuestions, 'java')" class="question-set">
+                    <div id="java" class="inactive-set"></div>
                     <div class="space"></div>
-                    <div><h3>JAVA</h3></div>
+                    <div>
+                        <h3>JAVA</h3>
+                    </div>
                 </div>
             </div>
-            <div class="welcome-to-quizz-section">
-                <div class="t-center">Welcome to <br> the awesome HTML Quizz</div>
 
+            <div id="welcomeToQuizzSection" class="welcome-to-quizz-section">
+                <div class="welcome-headline">
+                    <div class="t-center mb-4 pt-sans-bold-24size">Welcome to <br> the awesome Webdevelopement Quizz</div>
+                    <div class="t-center mb-4">CHOOSE YOUR QUIZ-SET</div>
+                </div>
+                <div id="playNowBtn" class="set-btn" style="display: none;">
+                    
+                </div>
+            </div>
 
-                <div class="card quiz-card" style="display: none;">
-                    <img src="img/pencil.jpg" id="headerImage" class="card-img-top">
+            <div class="card quiz-card" style="display: none;">
+                <div class="card-body column-centered" id="endScreen" style="display: none;">
+                    <div class="end-screen-img">
+                        <img class="obj-fit" src="img/brain result.png">
+                    </div>
+                    <div class="t-center quizz-done-headline">
+                        HTML QUIZ <br> COMPLETE
+                    </div>
+                    <div class="t-center">
+                        YOUR SCORE <b id="correctAnswered"></b> / <b id="allQuestions"></b>
+                    </div>
+                    <div class="btn-row">
+                        <button onclick="restartGame()" class="btn btn-secondary">Replay</button>
+                    </div>
+                </div>
+
+                <div id="quizBody" class="card-body px-0 width100">
+                    <h5 id="questionTitle" class="card-title t-center mb-4"></h5>
+                    <div class="card mb-3">
+                        <div id="answer_1" class="card-body quizz-answer-card" onclick="answer('answer_1')">
+                            Antwort
+                        </div>
+                    </div>
+                    <div class="card mb-3">
+                        <div id="answer_2" class="card-body quizz-answer-card" onclick="answer('answer_2')">
+                            Antwort
+                        </div>
+                    </div>
+                    <div class="card mb-3">
+                        <div id="answer_3" class="card-body quizz-answer-card" onclick="answer('answer_3')">
+                            Antwort
+                        </div>
+                    </div>
+                    <div class="card mb-3">
+                        <div id="answer_4" class="card-body quizz-answer-card" onclick="answer('answer_4')">
+                            Antwort
+                        </div>
+                    </div>
+                    <div class="question-footer">
+                        <span>
+                            <b id="currentQuestion"></b> von <b id="totalQuestions"></b> Fragen
+                        </span>
+                        <button onclick="nextQuestion()" class="btn btn-secondary" id="next-button" disabled>Nächste
+                            Frage</button>
+                    </div>
                     <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="25"
                         aria-valuemin="0" aria-valuemax="100">
                         <div id="userBar" class="progress-bar" style="width: 0.1%"></div>
                     </div>
-                    <div class="card-body" id="endScreen" style="display: none;">
-                        <div class="t-center quizz-done-headline">
-                            Quizz abgeschlossen !
-                        </div>
-                        <div class="t-center">
-                            Du hast <b id="correctAnswered"></b> von <b id="allQuestions"></b> Fragen richtig
-                            beantwortet !
-                        </div>
-                        <div class="btn-row">
-                            <button onclick="restartGame()" class="btn btn-secondary">Replay</button>
-                        </div>
-                    </div>
 
-                    <div id="quizBody" class="card-body">
-                        <h5 id="questionTitle" class="card-title"></h5>
-                        <div class="card mb-2">
-                            <div id="answer_1" class="card-body quizz-answer-card" onclick="answer('answer_1')">
-                                Antwort
-                            </div>
-                        </div>
-                        <div class="card mb-2">
-                            <div id="answer_2" class="card-body quizz-answer-card" onclick="answer('answer_2')">
-                                Antwort
-                            </div>
-                        </div>
-                        <div class="card mb-2">
-                            <div id="answer_3" class="card-body quizz-answer-card" onclick="answer('answer_3')">
-                                Antwort
-                            </div>
-                        </div>
-                        <div class="card mb-2">
-                            <div id="answer_4" class="card-body quizz-answer-card" onclick="answer('answer_4')">
-                                Antwort
-                            </div>
-                        </div>
-                        <div class="question-footer">
-                            <span>
-                                <b id="currentQuestion"></b> von <b id="totalQuestions"></b> Fragen
-                            </span>
-                            <button onclick="nextQuestion()" class="btn btn-secondary" id="next-button" disabled>Nächste
-                                Frage</button>
-                        </div>
-
-                    </div>
                 </div>
             </div>
+
         </div>
     </div>
 
