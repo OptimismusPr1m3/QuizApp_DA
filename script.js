@@ -213,6 +213,7 @@ function startQuizz() {
     restartGame();
     let totalQuestions = document.getElementById('totalQuestions');
     totalQuestions.innerHTML = questionSet.length;
+    fillProgressBar();
 }
 
 function init() {
@@ -283,7 +284,7 @@ function nextQuestion() {
 }
 
 function fillProgressBar() {
-    let percentageFromBar = Math.round(currentQuestion / questionSet.length * 100);
+    let percentageFromBar = Math.round((currentQuestion + 1) / questionSet.length * 100);
     document.getElementById('userBar').style.width = percentageFromBar + "%";
     document.getElementById('userBar').innerHTML = `${percentageFromBar}%`;
 }
