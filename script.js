@@ -2,200 +2,216 @@
 let htmlQuestions = [
     {
         'question': "Wer hat HTML erfunden ?",
-        'answer_1': "1.) Justin Biber",
-        'answer_2': "2.) Tim Berners-Lee",
-        'answer_3': "3.) Dennis Ritchie",
-        'answer_4': "4.) Brendan Eich",
+        'answer_1': "Justin Biber",
+        'answer_2': "Tim Berners-Lee",
+        'answer_3': "Dennis Ritchie",
+        'answer_4': "Brendan Eich",
         'right_answer': 2
     },
     {
         'question': "Welche Dateierweiterung wird häufig für HTML-Dokumente verwendet?",
-        'answer_1': "1.) .exe",
-        'answer_2': "2.) .html",
-        'answer_3': "3.) .pdf",
-        'answer_4': "4.) .dmg",
+        'answer_1': ".exe",
+        'answer_2': ".html",
+        'answer_3': ".pdf",
+        'answer_4': ".dmg",
         'right_answer': 2
     },
     {
         'question': "Welches Attribut wird verwendet, um einen Link in HTML festzulegen?",
-        'answer_1': "1.) src",
-        'answer_2': "2.) class",
-        'answer_3': "3.) alt",
-        'answer_4': "4.) href",
+        'answer_1': "src",
+        'answer_2': "class",
+        'answer_3': "alt",
+        'answer_4': "href",
         'right_answer': 4
     },
     {
         'question': "Welche HTML5-Technologie ermöglicht die Speicherung von Daten im Webbrowser des Benutzers?",
-        'answer_1': "1.) LocalStorage",
-        'answer_2': "2.) SessionStorage",
-        'answer_3': "3.) WebSQL",
-        'answer_4': "4.) IndexedDB",
+        'answer_1': "LocalStorage",
+        'answer_2': "SessionStorage",
+        'answer_3': "WebSQL",
+        'answer_4': "IndexedDB",
         'right_answer': 1
     },
     {
         'question': "Welche HTML-Tags werden verwendet, um eine Liste mit Aufzählungspunkten zu erstellen?",
-        'answer_1': "1.) &lt;ol&gt; und &lt;li&gt;",
-        'answer_2': "2.) &lt;p&gt; und &lt;br&gt;",
-        'answer_3': "3.) &lt;ul&gt; und &lt;li&gt;",
-        'answer_4': "4.) &lt;h1&gt; und &lt;h2&gt;",
+        'answer_1': "&lt;ol&gt; und &lt;li&gt;",
+        'answer_2': "&lt;p&gt; und &lt;br&gt;",
+        'answer_3': "&lt;ul&gt; und &lt;li&gt;",
+        'answer_4': "&lt;h1&gt; und &lt;h2&gt;",
         'right_answer': 3
     }
 ]
 let cssQuestions = [
     {
         'question': "Welche Bedeutung hat die Abkürzung CSS?",
-        'answer_1': "1.) Cascading Style Sheets",
-        'answer_2': "2.) Creative Style Solutions",
-        'answer_3': "3.) Computerized Styling System",
-        'answer_4': "4.) Central Styling Software",
+        'answer_1': "Cascading Style Sheets",
+        'answer_2': "Creative Style Solutions",
+        'answer_3': "Computerized Styling System",
+        'answer_4': "Central Styling Software",
         'right_answer': 1
     },
     {
         'question': "Wofür wird CSS hauptsächlich verwendet?",
-        'answer_1': "1.) Zur Gestaltung von Websites",
-        'answer_2': "2.) Zur Datenbankprogrammierung",
-        'answer_3': "3.) Zum Schreiben von Serverseitigen Skripten",
-        'answer_4': "4.) zur erstellung von 3D-Modellen",
+        'answer_1': "Zur Gestaltung von Websites",
+        'answer_2': "Zur Datenbankprogrammierung",
+        'answer_3': "Zum Schreiben von Serverseitigen Skripten",
+        'answer_4': "zur erstellung von 3D-Modellen",
         'right_answer': 1
     },
     {
         'question': "Wie werden CSS-Stile in HTML-Dokumente eingebunden?",
-        'answer_1': "1.) Durch die Verwendung von &lt;script&gt; Tags",
-        'answer_2': "2.) durch die Verwednung von %lt;style%gt; Tags",
-        'answer_3': "3.) Durch die Verwendung von %lt;link%gt; Tags",
-        'answer_4': "4.) Durch die Verwendung von %lt;css&gt; Tags",
+        'answer_1': "Durch die Verwendung von &lt;script&gt; Tags",
+        'answer_2': "durch die Verwednung von &lt;style&gt; Tags",
+        'answer_3': "Durch die Verwendung von &lt;link&gt; Tags",
+        'answer_4': "Durch die Verwendung von &lt;css&gt; Tags",
         'right_answer': 3
     },
     {
         'question': "Welche Einheit wird in CSS verwendet, um die Schriftgröße festzulegen?",
-        'answer_1': "1.) px (Pixel)",
-        'answer_2': "2.) em (Relative Einheit)",
-        'answer_3': "3.) % ",
-        'answer_4': "4.) pt (Punkt)",
+        'answer_1': "px (Pixel)",
+        'answer_2': "em (Relative Einheit)",
+        'answer_3': "% ",
+        'answer_4': "pt (Punkt)",
         'right_answer': 1
     },
     {
         'question': "Wie können CSS-Regeln für bestimmte HTML-Elemente spezifiziert werden?",
-        'answer_1': "1.) Durch die Verwendung von ID-Selektoren",
-        'answer_2': "2.) Durch die Verwendung von Class-Selektoren",
-        'answer_3': "3.) Durch die Verwendung von tag-Selektoren",
-        'answer_4': "4.) Alle oben genannten Möglichkeiten",
+        'answer_1': "Durch die Verwendung von ID-Selektoren",
+        'answer_2': "Durch die Verwendung von Class-Selektoren",
+        'answer_3': "Durch die Verwendung von tag-Selektoren",
+        'answer_4': "Alle oben genannten Möglichkeiten",
         'right_answer': 4
     }
 ]
 let jsQuestions = [
     {
         'question': "Welche Art von Sprache ist JavaScript?",
-        'answer_1': "1.) Markup-Sprache",
-        'answer_2': "2.) Programmiersprache",
-        'answer_3': "3.) Datenbanksprache",
-        'answer_4': "4.) Skriptsprache",
+        'answer_1': "Markup-Sprache",
+        'answer_2': "Programmiersprache",
+        'answer_3': "Datenbanksprache",
+        'answer_4': "Skriptsprache",
         'right_answer': 4
     },
     {
         'question': "Wie wird eine Variable in JavaScript deklariert?",
-        'answer_1': "1.) var myVar",
-        'answer_2': "2.) let myVar",
-        'answer_3': "3.) const myVar",
-        'answer_4': "4.) Alle oben genannten Möglichkeiten",
+        'answer_1': "var myVar",
+        'answer_2': "let myVar",
+        'answer_3': "const myVar",
+        'answer_4': "Alle oben genannten Möglichkeiten",
         'right_answer': 4
     },
     {
         'question': "Welche Funktion wird verwendet, um eine Meldung im Browser anzuzeigen?",
-        'answer_1': "1.) console.log()",
-        'answer_2': "2.) alert()",
-        'answer_3': "3.) log()",
-        'answer_4': "4.) print()",
+        'answer_1': "console.log()",
+        'answer_2': "alert()",
+        'answer_3': "log()",
+        'answer_4': "print()",
         'right_answer': 2
     },
     {
         'question': "Wie wird eine for-Schleife in JavaScript geschrieben?",
-        'answer_1': "1.) for (i = 0; i < 5; i++)",
-        'answer_2': "2.) for (var i = 0; i < 5; i++",
-        'answer_3': "3.) for (let i = 0; i < 5; i++",
-        'answer_4': "4.) Alle oben genannten Möglichkeiten",
+        'answer_1': "for (i = 0; i < 5; i++)",
+        'answer_2': "for (var i = 0; i < 5; i++",
+        'answer_3': "for (let i = 0; i < 5; i++",
+        'answer_4': "Alle oben genannten Möglichkeiten",
         'right_answer': 4
     },
     {
         'question': "Wie können Ereignisse in JavaScript behandelt werden?",
-        'answer_1': "1.) Durch die Verwendung von Event-Handlern",
-        'answer_2': "2.) Durch die Verwendung von Funktionen",
-        'answer_3': "3.) Durch die Verwendung von Callback-Funktionen",
-        'answer_4': "4.) Alle oben genannten Möglichkeiten",
+        'answer_1': "Durch die Verwendung von Event-Handlern",
+        'answer_2': "Durch die Verwendung von Funktionen",
+        'answer_3': "Durch die Verwendung von Callback-Funktionen",
+        'answer_4': "Alle oben genannten Möglichkeiten",
         'right_answer': 4
     }
 ]
 let javaQuestions = [
     {
         'question': "Welche Aussage trifft auf die Programmiersprache Java zu?",
-        'answer_1': "1.) Java ist eine interpretierte Sprache",
-        'answer_2': "2.) Java wurde von Microsoft entwickelt",
-        'answer_3': "3.) Java wird hauptsächlich für Webdesign verwendet",
-        'answer_4': "4.) Java ist eine objektorientierte Sprache",
+        'answer_1': "Java ist eine interpretierte Sprache",
+        'answer_2': "Java wurde von Microsoft entwickelt",
+        'answer_3': "Java wird hauptsächlich für Webdesign verwendet",
+        'answer_4': "Java ist eine objektorientierte Sprache",
         'right_answer': 4
     },
     {
         'question': "Wie werden Variablen in Java deklariert?",
-        'answer_1': "1.) var myVar;",
-        'answer_2': "2.) let myVar;",
-        'answer_3': "3.) const myVar;",
-        'answer_4': "4.) int myVar;",
+        'answer_1': "var myVar;",
+        'answer_2': "let myVar;",
+        'answer_3': "const myVar;",
+        'answer_4': "int myVar;",
         'right_answer': 4
     },
     {
         'question': "Welche Methode wird verwendet, um Text auf der Konsole auszugeben?",
-        'answer_1': "1.) console.log()",
-        'answer_2': "2.) print()",
-        'answer_3': "3.) System.out.println()",
-        'answer_4': "4.) write()",
+        'answer_1': "console.log()",
+        'answer_2': "print()",
+        'answer_3': "System.out.println()",
+        'answer_4': "write()",
         'right_answer': 3
     },
     {
         'question': "Welche Schleife wird verwendet, um eine Aktion wiederholt auszuführen, solange eine Bedingung erfüllt ist?",
-        'answer_1': "1.) for-Schleife",
-        'answer_2': "2.) while-Schleife",
-        'answer_3': "3.) do-while-Schleife",
-        'answer_4': "4.) repeat-Schleife",
+        'answer_1': "for-Schleife",
+        'answer_2': "while-Schleife",
+        'answer_3': "do-while-Schleife",
+        'answer_4': "repeat-Schleife",
         'right_answer': 2
     },
     {
         'question': "Welche Aussage trifft auf die Verwendung von Klassen in Java zu?",
-        'answer_1': "1.) Klassen werden verwendet, um Objekte zu instanziieren",
-        'answer_2': "2.) Klassen dienen zur Definition von Methoden und Attributen",
-        'answer_3': "3.) Klassen können vererbt werden",
-        'answer_4': "4.) Alle oben genannten Aussagen sind korrekt",
+        'answer_1': "Klassen werden verwendet, um Objekte zu instanziieren",
+        'answer_2': "Klassen dienen zur Definition von Methoden und Attributen",
+        'answer_3': "Klassen können vererbt werden",
+        'answer_4': "Alle oben genannten Aussagen sind korrekt",
         'right_answer': 4
     }
 ]
-
-
-
 
 let questionSet;
 let currentQuestion = 0;
 let correctAnsweredQuestions = 0;
 
 function setQuizz(chosenSet, set) {
+    document.getElementById('welcomeToQuizzSection').style = '';
+    document.getElementById('endScreen').parentNode.style = 'display: none';
     questionSet = chosenSet;
     let playNowBtn = document.getElementById('playNowBtn');
+    setActviOrInactiv(set);
+    playNowBtn.style = '';
+    playNowBtn.innerHTML = /*html*/`
+    <div onclick="startQuizz()" class=" btn btn-secondary btn-align-center">START NOW <span class="material-symbols-outlined">chevron_right</span></div>
+    `
+}
+
+function setAllToInactive(){
+    document.getElementById('htm').classList.remove('active-set');
+    document.getElementById('htm').classList.add('inactive-set');
+    document.getElementById('cs').classList.remove('active-set');
+    document.getElementById('cs').classList.add('inactive-set');
+    document.getElementById('js').classList.remove('active-set');
+    document.getElementById('js').classList.add('inactive-set');
+    document.getElementById('java').classList.add('inactive-set');
+    document.getElementById('java').classList.remove('active-set');
+}
+
+function setActviOrInactiv(set){
+    setAllToInactive();
     let activeOrInactive = document.getElementById(`${set}`);
     activeOrInactive.classList.remove('inactive-set');
     activeOrInactive.classList.add('active-set');
-    playNowBtn.style = '';
-    playNowBtn.innerHTML += /*html*/`
-    <div onclick="startQuizz()" class=" btn btn-secondary btn-align-center">START NOW <span class="material-symbols-outlined">chevron_right</span></div>
-    `
 }
 
 function startQuizz() {
     document.getElementById('welcomeToQuizzSection').style = 'display: none;';
     document.getElementById('endScreen').parentNode.style = '';
-    init();
+    clearAll();
+    restartGame();
+    let totalQuestions = document.getElementById('totalQuestions');
+    totalQuestions.innerHTML = questionSet.length;
 }
 
 function init() {
-    let totalQuestions = document.getElementById('totalQuestions');
-    totalQuestions.innerHTML = questionSet.length;
     showQuestion();
     showCurrentQuestionFoot();
 
@@ -227,7 +243,10 @@ function showAnswers() {
         let answerText = document.getElementById(`answer_${i}`);
         let answer = questionSet[currentQuestion][`answer_${i}`];
         answerText.innerHTML = ``;
-        answerText.innerHTML += answer;
+        answerText.innerHTML += /*html*/`
+        <div class="answer-row">
+        <p class="width30">${i}.</p> <p class="width70">${answer}</p>
+        </div>`;
     }
 }
 

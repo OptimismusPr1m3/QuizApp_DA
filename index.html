@@ -52,13 +52,10 @@
             <div id="welcomeToQuizzSection" class="welcome-to-quizz-section">
                 <div class="welcome-headline">
                     <div class="t-center mb-4 pt-sans-bold-24size">Welcome to <br> the awesome Webdevelopement Quizz</div>
-                    <div class="t-center mb-4">CHOOSE YOUR QUIZ-SET</div>
+                    <div class="t-center mb-4"><p>CHOOSE YOUR QUIZ-SET</p></div>
                 </div>
-                <div id="playNowBtn" class="set-btn" style="display: none;">
-                    
-                </div>
+                <div id="playNowBtn" class="set-btn" style="display: none;">  </div>
             </div>
-
             <div class="card quiz-card" style="display: none;">
                 <div class="card-body column-centered" id="endScreen" style="display: none;">
                     <div class="end-screen-img">
@@ -67,51 +64,54 @@
                     <div class="t-center quizz-done-headline">
                         HTML QUIZ <br> COMPLETE
                     </div>
-                    <div class="t-center">
-                        YOUR SCORE <b id="correctAnswered"></b> / <b id="allQuestions"></b>
+                    <div class="user-score">
+                        <div class="score-text">
+                            YOUR SCORE 
+                        </div>
+                        <div class="score">
+                            <b id="correctAnswered"></b> / <b id="allQuestions"></b>
+                        </div>
                     </div>
                     <div class="btn-row">
                         <button onclick="restartGame()" class="btn btn-secondary">Replay</button>
                     </div>
                 </div>
 
-                <div id="quizBody" class="card-body px-0 width100">
-                    <h5 id="questionTitle" class="card-title t-center mb-4"></h5>
-                    <div class="card mb-3">
+                <div id="quizBody" class="card-body p-0 width100">
+                    <h4 id="questionTitle" class="card-title t-center mb-4"></h4>
+                    <div class="card width90 mb-3">
                         <div id="answer_1" class="card-body quizz-answer-card" onclick="answer('answer_1')">
                             Antwort
                         </div>
                     </div>
-                    <div class="card mb-3">
+                    <div class="card width90 mb-3">
                         <div id="answer_2" class="card-body quizz-answer-card" onclick="answer('answer_2')">
                             Antwort
                         </div>
                     </div>
-                    <div class="card mb-3">
+                    <div class="card width90 mb-3">
                         <div id="answer_3" class="card-body quizz-answer-card" onclick="answer('answer_3')">
                             Antwort
                         </div>
                     </div>
-                    <div class="card mb-3">
+                    <div class="card width90 mb-3">
                         <div id="answer_4" class="card-body quizz-answer-card" onclick="answer('answer_4')">
                             Antwort
                         </div>
                     </div>
-                    <div class="question-footer">
+                    <div class="progress width100" role="progressbar" aria-label="Example with label" aria-valuenow="25"
+                        aria-valuemin="0" aria-valuemax="100">
+                        <div id="userBar" class="progress-bar" style="width: 0.1%"></div>
+                    </div>
+                    <div class="question-footer width100">
                         <span>
                             <b id="currentQuestion"></b> von <b id="totalQuestions"></b> Fragen
                         </span>
                         <button onclick="nextQuestion()" class="btn btn-secondary" id="next-button" disabled>Nächste
                             Frage</button>
                     </div>
-                    <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="25"
-                        aria-valuemin="0" aria-valuemax="100">
-                        <div id="userBar" class="progress-bar" style="width: 0.1%"></div>
-                    </div>
-
                 </div>
             </div>
-
         </div>
     </div>
 
