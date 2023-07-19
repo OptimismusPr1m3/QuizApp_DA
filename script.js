@@ -61,7 +61,7 @@ let cssQuestions = [
     {
         'question': "Wie werden CSS-Stile in HTML-Dokumente eingebunden?",
         'answer_1': "Durch die Verwendung von &lt;script&gt; Tags",
-        'answer_2': "durch die Verwednung von &lt;style&gt; Tags",
+        'answer_2': "Durch die Verwednung von &lt;style&gt; Tags",
         'answer_3': "Durch die Verwendung von &lt;link&gt; Tags",
         'answer_4': "Durch die Verwendung von &lt;css&gt; Tags",
         'right_answer': 3
@@ -111,8 +111,8 @@ let jsQuestions = [
     {
         'question': "Wie wird eine for-Schleife in JavaScript geschrieben?",
         'answer_1': "for (i = 0; i < 5; i++)",
-        'answer_2': "for (var i = 0; i < 5; i++",
-        'answer_3': "for (let i = 0; i < 5; i++",
+        'answer_2': "for (var i = 0; i < 5; i++)",
+        'answer_3': "for (let i = 0; i < 5; i++)",
         'answer_4': "Alle oben genannten Möglichkeiten",
         'right_answer': 4
     },
@@ -167,15 +167,19 @@ let javaQuestions = [
         'right_answer': 4
     }
 ]
-
+let nameQuestionSet;
 let questionSet;
 let currentQuestion = 0;
 let correctAnsweredQuestions = 0;
 
-function setQuizz(chosenSet, set) {
+let AUDIO_SUCCESS = new Audio('sounds/success.mp3');
+let AUDIO_FAIL = new Audio('sounds/wrong.mp3');
+
+function setQuizz(chosenSet, set, nameOfSet) {
     document.getElementById('welcomeToQuizzSection').style = '';
     document.getElementById('endScreen').parentNode.style = 'display: none';
     questionSet = chosenSet;
+    nameQuestionSet = nameOfSet;
     let playNowBtn = document.getElementById('playNowBtn');
     setActviOrInactiv(set);
     playNowBtn.style = '';
@@ -184,7 +188,7 @@ function setQuizz(chosenSet, set) {
     `
 }
 
-function setAllToInactive(){
+function setAllToInactive() {
     document.getElementById('htm').classList.remove('active-set');
     document.getElementById('htm').classList.add('inactive-set');
     document.getElementById('cs').classList.remove('active-set');
@@ -195,7 +199,7 @@ function setAllToInactive(){
     document.getElementById('java').classList.remove('active-set');
 }
 
-function setActviOrInactiv(set){
+function setActviOrInactiv(set) {
     setAllToInactive();
     let activeOrInactive = document.getElementById(`${set}`);
     activeOrInactive.classList.remove('inactive-set');
@@ -225,17 +229,21 @@ function showCurrentQuestionFoot() {
 function showQuestion() {
 
     if (currentQuestion >= questionSet.length) {
-        document.getElementById('endScreen').style = '';
-        document.getElementById('quizBody').style = 'display: none;'
-        document.getElementById('correctAnswered').innerHTML = correctAnsweredQuestions;
-        document.getElementById('allQuestions').innerHTML = questionSet.length;
-
+        showEndScreen();
     } else {
         let question = questionSet[currentQuestion]['question'];
         let questionTitle = document.getElementById('questionTitle');
         questionTitle.innerHTML = question;
         showAnswers();
     }
+}
+
+function showEndScreen() {
+    document.getElementById('endScreen').style = '';
+    document.getElementById('quizBody').style = 'display: none;';
+    document.getElementById('quizzDoneHeadline').innerHTML = /*html*/`${nameQuestionSet} QUIZ <br> COMPLETE`;
+    document.getElementById('correctAnswered').innerHTML = correctAnsweredQuestions;
+    document.getElementById('allQuestions').innerHTML = questionSet.length;
 }
 
 function showAnswers() {
@@ -256,9 +264,11 @@ function answer(selection) {
     if (userAnswer === rightAnswer) {
         correctAnsweredQuestions++;
         document.getElementById(selection).parentNode.classList.add('bg-success');
+        AUDIO_SUCCESS.play();
     } else {
         document.getElementById(selection).parentNode.classList.add('bg-danger');
         document.getElementById(`answer_${rightAnswer}`).parentNode.classList.add('bg-success');
+        AUDIO_FAIL.play();
     }
     document.getElementById('next-button').disabled = false;
 
@@ -289,10 +299,14 @@ function clearAll() {
 function restartGame() {
     correctAnsweredQuestions = 0;
     currentQuestion = 0;
-    document.getElementById('userBar').style.width = 0.1 + "%";
-    document.getElementById('userBar').innerHTML = '';
+    resetProgressBar();
     document.getElementById('endScreen').style = 'display: none';
     document.getElementById('quizBody').style = '';
     showQuestion();
     showCurrentQuestionFoot();
+}
+
+function resetProgressBar(){
+    document.getElementById('userBar').style.width = 0.1 + "%";
+    document.getElementById('userBar').innerHTML = '';
 }

@@ -19,28 +19,28 @@
                 <div class="img-logo">
                     <img src="img/logo.png">
                 </div>
-                <div onclick="setQuizz(htmlQuestions, 'htm')" class="question-set">
+                <div onclick="setQuizz(htmlQuestions, 'htm', 'HTML')" class="question-set">
                     <div id="htm" class="inactive-set"></div>
                     <div class="space"></div>
                     <div>
                         <h3>HTML</h3>
                     </div>
                 </div>
-                <div onclick="setQuizz(cssQuestions, 'cs')" class="question-set">
+                <div onclick="setQuizz(cssQuestions, 'cs', 'CSS')" class="question-set">
                     <div id="cs" class="inactive-set"></div>
                     <div class="space"></div>
                     <div>
                         <h3>CSS</h3>
                     </div>
                 </div>
-                <div onclick="setQuizz(jsQuestions, 'js')" class="question-set">
+                <div onclick="setQuizz(jsQuestions, 'js', 'JS')" class="question-set">
                     <div id="js" class="inactive-set"></div>
                     <div class="space"></div>
                     <div>
                         <h3>JS</h3>
                     </div>
                 </div>
-                <div onclick="setQuizz(javaQuestions, 'java')" class="question-set">
+                <div onclick="setQuizz(javaQuestions, 'java', 'JAVA')" class="question-set">
                     <div id="java" class="inactive-set"></div>
                     <div class="space"></div>
                     <div>
@@ -51,7 +51,7 @@
 
             <div id="welcomeToQuizzSection" class="welcome-to-quizz-section">
                 <div class="welcome-headline">
-                    <div class="t-center mb-4 pt-sans-bold-24size">Welcome to <br> the awesome Webdevelopement Quizz</div>
+                    <div class="t-center mb-4 pt-sans-bold-24size">Welcome to <br> the awesome Webdevelopement Quiz</div>
                     <div class="t-center mb-4"><p>CHOOSE YOUR QUIZ-SET</p></div>
                 </div>
                 <div id="playNowBtn" class="set-btn" style="display: none;">  </div>
@@ -61,8 +61,8 @@
                     <div class="end-screen-img">
                         <img class="obj-fit" src="img/brain result.png">
                     </div>
-                    <div class="t-center quizz-done-headline">
-                        HTML QUIZ <br> COMPLETE
+                    <div id="quizzDoneHeadline" class="t-center quizz-done-headline">
+                        
                     </div>
                     <div class="user-score">
                         <div class="score-text">
@@ -105,10 +105,9 @@
                     </div>
                     <div class="question-footer width100">
                         <span>
-                            <b id="currentQuestion"></b> von <b id="totalQuestions"></b> Fragen
+                            <b id="currentQuestion"></b> out of <b id="totalQuestions"></b> Questions
                         </span>
-                        <button onclick="nextQuestion()" class="btn btn-secondary" id="next-button" disabled>Nächste
-                            Frage</button>
+                        <button onclick="nextQuestion()" class="btn btn-secondary" id="next-button" disabled>Next Question</button>
                     </div>
                 </div>
             </div>
