@@ -171,6 +171,7 @@ let nameQuestionSet;
 let questionSet;
 let currentQuestion = 0;
 let correctAnsweredQuestions = 0;
+let hasUserAnswered = false;
 
 let AUDIO_SUCCESS = new Audio('sounds/success.mp3');
 let AUDIO_FAIL = new Audio('sounds/wrong.mp3');
@@ -178,6 +179,7 @@ let AUDIO_FAIL = new Audio('sounds/wrong.mp3');
 function setQuizz(chosenSet, set, nameOfSet) {
     document.getElementById('welcomeToQuizzSection').style = '';
     document.getElementById('endScreen').parentNode.style = 'display: none';
+    hasUserAnswered = false;
     questionSet = chosenSet;
     nameQuestionSet = nameOfSet;
     let playNowBtn = document.getElementById('playNowBtn');
@@ -207,6 +209,7 @@ function setActviOrInactiv(set) {
 }
 
 function startQuizz() {
+    hasUserAnswered = false;
     document.getElementById('welcomeToQuizzSection').style = 'display: none;';
     document.getElementById('endScreen').parentNode.style = '';
     clearAll();
@@ -219,7 +222,6 @@ function startQuizz() {
 function init() {
     showQuestion();
     showCurrentQuestionFoot();
-
 }
 
 function showCurrentQuestionFoot() {
@@ -262,11 +264,13 @@ function showAnswers() {
 function answer(selection) {
     let userAnswer = Number(selection.slice(-1));
     let rightAnswer = questionSet[currentQuestion]['right_answer'];
-    if (userAnswer === rightAnswer) {
+    if (userAnswer === rightAnswer && hasUserAnswered == false) {
         correctAnsweredQuestions++;
+        hasUserAnswered = true;
         document.getElementById(selection).parentNode.classList.add('bg-success');
         AUDIO_SUCCESS.play();
-    } else {
+    } else if(userAnswer !== rightAnswer && hasUserAnswered == false) {
+        hasUserAnswered = true;
         document.getElementById(selection).parentNode.classList.add('bg-danger');
         document.getElementById(`answer_${rightAnswer}`).parentNode.classList.add('bg-success');
         AUDIO_FAIL.play();
@@ -277,6 +281,7 @@ function answer(selection) {
 
 function nextQuestion() {
     currentQuestion++;
+    hasUserAnswered = false;
     fillProgressBar();
     clearAll();
     init();
@@ -301,6 +306,7 @@ function restartGame() {
     correctAnsweredQuestions = 0;
     currentQuestion = 0;
     resetProgressBar();
+    fillProgressBar();
     document.getElementById('endScreen').style = 'display: none';
     document.getElementById('quizBody').style = '';
     showQuestion();
